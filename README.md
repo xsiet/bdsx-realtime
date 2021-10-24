@@ -10,3 +10,6 @@ This is a bdsx plugin to set the game(minecraft) time the same as the current ti
 ### Credits
 This plugin use mourner's suncalc(https://github.com/mourner/suncalc).
 And I made it referring to noonmaru's realtime(https://github.com/noonmaru/realtime).
+
+### And...
+I have tested several times and fixed some, but there may still be bugs...
