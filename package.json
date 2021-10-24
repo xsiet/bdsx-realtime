@@ -8,9 +8,14 @@
     "license": "MIT",
     "bdsxPlugin": true,
     "scripts": {
-      "build": "tsc",
-      "watch": "tsc -w",
-      "prepare": "tsc || exit 0"
+        "build": "tsc",
+        "watch": "tsc -w",
+        "prepare": "tsc || exit 0"
     },
-    "devDependencies": { "bdsx": "file:../bdsx" }
+    "devDependencies": {
+        "bdsx": "file:../bdsx"
+    },
+    "dependencies": {
+        "suncalc": "^1.8.0"
+    }
 }
