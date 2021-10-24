@@ -1,5 +1,5 @@
 import { latitude, longitude } from '../config.json';
-const sunCalc = require(`./suncalc`)
+const sunCalc = require(`suncalc`)
 
 export namespace timeAdapter {
     let from: Date
