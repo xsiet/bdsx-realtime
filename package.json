@@ -1,0 +1,16 @@
+{
+    "name": "@bdsx/realtime",
+    "version": "1.0.0",
+    "description": "Set the game time the same as the current time.",
+    "main": "src/index.js",
+    "keywords": [],
+    "author": "Jaemin0299",
+    "license": "MIT",
+    "bdsxPlugin": true,
+    "scripts": {
+      "build": "tsc",
+      "watch": "tsc -w",
+      "prepare": "tsc || exit 0"
+    },
+    "devDependencies": { "bdsx": "file:../bdsx" }
+}
