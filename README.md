@@ -2,7 +2,7 @@
 This is a bdsx plugin to set the game(minecraft) time the same as the current time.
 
 # How to use
-Step 1. Download this code.
-Step 2. Unzip it.
-Step 3  Please correct the latitude and longitude in config.json.
-Step 4. Apply it to your bdsx.
+- Step 1. Download this code.
+- Step 2. Unzip it.
+- Step 3  Please correct the latitude and longitude in config.json.
+- Step 4. Apply it to your bdsx.
