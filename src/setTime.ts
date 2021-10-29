@@ -2,7 +2,7 @@ import { serverInstance } from 'bdsx/bds/server';
 import { events } from 'bdsx/event';
 import { bedrockServer } from 'bdsx/launcher';
 import { timeAdapter } from './timeAdapter';
-
+//
 bedrockServer.executeCommand(`gamerule dodaylightcycle false`)
 serverInstance.minecraft.getLevel().setTime(0)
 
