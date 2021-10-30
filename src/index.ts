@@ -1,8 +1,12 @@
 import { events } from 'bdsx/event';
-import { latitude, longitude } from '../config.json';
+import { red } from 'colors';
 
 events.serverOpen.on(() => {
-    if (!latitude) return console.log(new Error(`latitude is not set!`));
-    if (!longitude) return console.log(new Error(`longitude is not set!`));
-    import(`./setTime`)
+    import(`./config`)
+    setTimeout(() => {
+        const { location } = require(`../../../plugins_data/realtime/config.json`)
+        if (!location.latitude) return console.log(red(`[Realtime] Latitude is not correct. Please modify the config file and run the server again.`))
+        if (!location.longitude) return console.log(red(`[Realtime] Longitude is not correct. Please modify the config file and run the server again.`))
+        import(`./setTime`)
+    }, 100)
 });

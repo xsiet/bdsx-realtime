@@ -1,10 +1,9 @@
 import { serverInstance } from 'bdsx/bds/server';
 import { events } from 'bdsx/event';
-import { bedrockServer } from 'bdsx/launcher';
+import { GameRuleId } from 'bdsx/bds/gamerules';
 import { timeAdapter } from './timeAdapter';
-///
-bedrockServer.executeCommand(`gamerule dodaylightcycle false`)
-serverInstance.minecraft.getLevel().setTime(0)
+
+serverInstance.minecraft.getLevel().getGameRules().getRule(GameRuleId.DoDaylightCycle).setValue(false)
 
 timeAdapter.updateTimeAdapter()
 const tick = timeAdapter.getCurrentTick()
