@@ -4,7 +4,7 @@ import { float32_t } from 'bdsx/nativetype';
 import { realtimeDisable, realtimeEnable } from '.';
 import { getConfig, setConfig } from './data';
 
-command.register(`realtime`, `Realtime plugin command.`, CommandPermissionLevel.Operator)
+command.register(`realtime`, `Realtime plugin command.`,CommandPermissionLevel.Operator)
 .overload((params, origin, output) => {
     if (getConfig().enable) return output.success(`§cRealtime is already enabled!`);
 
