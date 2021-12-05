@@ -1,6 +1,6 @@
 {
     "name": "@bdsx/realtime",
-    "version": "1.2.0",
+    "version": "1.0.0",
     "description": "Set the game time the same as the current time.",
     "main": "src/index.js",
     "keywords": [],

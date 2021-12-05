@@ -3,8 +3,31 @@ import { command } from 'bdsx/command';
 import { float32_t } from 'bdsx/nativetype';
 import { realtimeDisable, realtimeEnable } from '.';
 import { getConfig, setConfig } from './data';
+import { description, version, license, author } from '../package.json';
+
+const help =
+`\n§6======§r Help: /realtime §6======\n` +
+`§6/realtime help:§r Shows the help about realtime commands.\n` +
+`§6/realtime enable:§r Enable the realtime.\n` +
+`§6/realtime disable:§r Disable the realtime.\n` +
+`§6/realtime set timezone <value>:§r Set the timezone.\n` +
+`§6/realtime set latitude <value>:§r Set the latitude.\n` +
+`§6/realtime set longitude <value>:§r Set the longitude.\n` +
+`§6/realtime reload:§r Reload the realtime plugin.\n` +
+`§6/realtime info:§r Shows the info about realtime plugin.\n `
+
+const info =
+`\n§6======§r Plugin Info: realtime §6======\n` +
+`§6Name:§r realtime\n` +
+`§6Description:§r ${description}\n` +
+`§6Version:§r ${version}\n` +
+`§6License:§r ${license}\n` +
+`§6Author:§r ${author}\n `
 
 command.register(`realtime`, `Realtime plugin command.`, CommandPermissionLevel.Operator)
+.overload((params, origin, output) => output.success(help), {})
+.overload((params, origin, output) => output.success(help), { help: command.enum(`Help`, `help`) })
+
 .overload((params, origin, output) => {
     if (getConfig().enable) return output.success(`§cRealtime is already enabled!`);
 
@@ -50,4 +73,8 @@ command.register(`realtime`, `Realtime plugin command.`, CommandPermissionLevel.
     if (getConfig().enable) realtimeEnable.fire()
 
     output.success(`§aReload complete!`)
-}, { reload: command.enum(`Reload`, `reload`) });
+}, { reload: command.enum(`Reload`, `reload`) })
+
+.overload((params, origin, output) => {
+    output.success(info)
+}, { info: command.enum(`Info`, `info`) });
