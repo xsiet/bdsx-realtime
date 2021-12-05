@@ -1,14 +1,23 @@
-import { location } from '../../../plugins_data/realtime/config.json';
 import * as suncalc from 'suncalc';
 
-const { latitude, longitude } = location
-
 export namespace timeAdapter {
+    let timezone: number
+
+    let latitude: number
+    let longitude: number
+
     let from: Date
     let to: Date
     let tickOffset: number
     let tickDuration: number
     export let lastTick: number
+
+    export function setTimezone(timezone_: number) { timezone = timezone_ }
+
+    export function setLocation(latitude_: number, longitude_: number) {
+        latitude = latitude_
+        longitude = longitude_
+    }
 
     export function timeAdapter(from_: Date, to_: Date, type: any) {
         from = from_
@@ -17,10 +26,17 @@ export namespace timeAdapter {
         tickDuration = type.period
     }
 
+    export function getDate(): Date {
+        const current = new Date()
+        const UTC = current.getTime() + (current.getTimezoneOffset() * 60 * 1000)
+        const TIME_DIFF = timezone * 60 * 60 * 1000
+        return new Date(UTC + TIME_DIFF);
+    }
+
     export function getCurrentTick() {
         const from_ = from.getTime()
         const period = to.getTime() - from_
-        const time = new Date().getTime()
+        const time = getDate().getTime()
         const current = time - from_
         const tick = tickDuration * current / period
         return tickOffset + tick;
@@ -32,7 +48,7 @@ export namespace timeAdapter {
     }
 
     export function updateTimeAdapter() {
-        const date = new Date()
+        const date = getDate()
         const time = date.getTime()
         let sunrise = suncalc.getTimes(date, latitude, longitude).sunrise
         let sunset = suncalc.getTimes(date, latitude, longitude).sunset

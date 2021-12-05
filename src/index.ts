@@ -1,12 +1,18 @@
+import { Event } from 'bdsx/eventtarget';
 import { events } from 'bdsx/event';
-import { red } from 'colors';
+import { getConfig } from './data';
+
+export const realtimeEnable = new Event()
+export const realtimeDisable = new Event()
 
 events.serverOpen.on(() => {
-    import(`./config`)
-    setTimeout(() => {
-        const { location } = require(`../../../plugins_data/realtime/config.json`)
-        if (!location.latitude) return console.log(red(`[Realtime] Latitude is not correct. Please modify the config file and run the server again.`))
-        if (!location.longitude) return console.log(red(`[Realtime] Longitude is not correct. Please modify the config file and run the server again.`))
-        import(`./setTime`)
-    }, 100)
+    import(`./data`)
+    import(`./commands`)
+    import(`./setTime`)
+
+    if (getConfig().enable) setTimeout(() => realtimeEnable.fire())
+});
+
+events.serverLog.on(log => {
+    if (log.endsWith(`Server stop requested.`)) realtimeDisable.fire()
 });
