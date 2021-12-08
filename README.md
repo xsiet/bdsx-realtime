@@ -1,4 +1,4 @@
-# BDSX-REALTIME
+# BDSX-REALTIME-PLUGIN
 This is a bdsx plugin to set the game time the same as the current time.
 
 ## How to use?
