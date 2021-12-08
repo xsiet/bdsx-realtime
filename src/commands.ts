@@ -3,7 +3,7 @@ import { command } from 'bdsx/command';
 import { float32_t } from 'bdsx/nativetype';
 import { realtimeDisable, realtimeEnable } from '.';
 import { getConfig, setConfig } from './data';
-import { description, version, license, author } from '../package.json';
+import { name, description, version, license, author } from '../package.json';
 
 const help =
 `\n§6======§r Help: /realtime §6======\n` +
@@ -17,8 +17,8 @@ const help =
 `§6/realtime info:§r Shows the info about realtime plugin.\n `
 
 const info =
-`\n§6======§r Plugin Info: realtime §6======\n` +
-`§6Name:§r realtime\n` +
+`\n§6======§r Plugin Info: ${name} §6======\n` +
+`§6Name:§r ${name}\n` +
 `§6Description:§r ${description}\n` +
 `§6Version:§r ${version}\n` +
 `§6License:§r ${license}\n` +
