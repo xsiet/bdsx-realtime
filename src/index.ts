@@ -13,8 +13,6 @@ events.serverOpen.on(() => {
     import(`./setTime`)
 
     if (getConfig().enable) setTimeout(() => realtimeEnable.fire(), 100)
-
-    console.log(yellow(`[BDSX-PLUGIN] ${name}(v${version}) loaded!`))
 });
 
 events.serverLog.on(log => {
